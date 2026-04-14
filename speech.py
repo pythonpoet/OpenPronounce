@@ -15,7 +15,7 @@ import warnings
 
 
 # Load Wav2Vec2
-MODEL_NAME = "facebook/wav2vec2-large-960h"
+MODEL_NAME = "amsterdamNLP/Wav2Vec2-NL"
 processor = Wav2Vec2Processor.from_pretrained(MODEL_NAME)
 model = Wav2Vec2Model.from_pretrained(MODEL_NAME)
 model.eval()
@@ -57,11 +57,11 @@ def get_phonemes_with_word_mapping(text):
     
     for word in words:
         try:
-            word_phonemes = phonemize(word, language="en-us", backend="espeak", strip=True, preserve_punctuation=False).split()
+            word_phonemes = phonemize(word, language="nl", backend="espeak", strip=True, preserve_punctuation=False).split()
         except Exception as e:
             # warnings.warn(f"Error with espeak for word '{word}', switching to festival: {e}", UserWarning)
             try:
-                word_phonemes = phonemize(word, language="en-us", backend="festival", strip=True, preserve_punctuation=False).split()
+                word_phonemes = phonemize(word, language="nl", backend="festival", strip=True, preserve_punctuation=False).split()
             except:
                 word_phonemes = [] # Fallback if everything fails
 
@@ -178,10 +178,10 @@ def compare_transcriptions(transcription, text_reference):
         # Re-generate phonemes for this word to know how many there are
         # (This is slightly inefficient but safe)
         try:
-            p_list = phonemize(word, language="en-us", backend="espeak", strip=True, preserve_punctuation=False).split()
+            p_list = phonemize(word, language="nl", backend="espeak", strip=True, preserve_punctuation=False).split()
         except:
             try:
-                p_list = phonemize(word, language="en-us", backend="festival", strip=True, preserve_punctuation=False).split()
+                p_list = phonemize(word, language="nl", backend="festival", strip=True, preserve_punctuation=False).split()
             except:
                 p_list = []
         
