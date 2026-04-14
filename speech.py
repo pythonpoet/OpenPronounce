@@ -15,7 +15,7 @@ import warnings
 
 
 # Load Wav2Vec2
-MODEL_NAME = "GroNLP/wav2vec2-dutch-large"
+MODEL_NAME = "facebook/wav2vec2-large-xlsr-53-dutch"
 processor = Wav2Vec2Processor.from_pretrained(MODEL_NAME)
 model = Wav2Vec2Model.from_pretrained(MODEL_NAME)
 model.eval()
