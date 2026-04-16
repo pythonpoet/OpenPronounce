@@ -42,11 +42,12 @@ RUN pip install --no-cache-dir \
 ENV HF_HOME=/app/.cache/huggingface
 ENV TF_CPP_MIN_LOG_LEVEL=3
 
+
 # Copy application source
 COPY . .
 
 EXPOSE 8000
 
-RUN python -c "import speech; import audio"
+#RUN python -c "import speech; import audio"
 
 CMD ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
