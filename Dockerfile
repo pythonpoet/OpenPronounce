@@ -36,7 +36,8 @@ RUN pip install --no-cache-dir \
     requests \
     uvicorn \
     soundfile \
-    huggingface-hub
+    huggingface-hub \
+    torchcodec
 
 # Environment variables
 ENV HF_HOME=/app/.cache/huggingface
