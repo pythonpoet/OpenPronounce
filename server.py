@@ -82,7 +82,7 @@ async def api_tts(text: str = Form(...)):
         print(e)
         raise HTTPException(status_code=500, detail='Something went wrong')
 
-@app.post("/wakeup")
+@app.get("/wakeup")
 async def wakeup():
     return {"status": "woke"}
 
