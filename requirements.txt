@@ -19,3 +19,4 @@ plotly
 requests
 uvicorn
 soundfile
+torchcodec
